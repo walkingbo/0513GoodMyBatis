@@ -44,16 +44,16 @@ public class Main {
 				service.allGood();
 				break;
 			case 2:
-				System.out.println("코드로 검색");
+				service.codeSearch(sc);
 				break;
 			case 3:
-				System.out.println("데이터 삽입");
+				service.insertGood(sc);
 				break;
 			case 4:
-				System.out.println("데이터 수정");
+				service.updateGood(sc);
 				break;
 			case 5:
-				System.out.println("데이터 삭제");
+				service.deleteGood(sc);
 				break;	
 			case 6:
 				System.out.println("프로그램 종료");

@@ -21,7 +21,7 @@
 		<property value="user12" name="password" />
 	</bean>
 
-	<!-- MyBatis 설정을 위한 설정 -->
+	<!-- MyBatis 설정을 위한 설정 : XML 이용 
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean"
 		id="sqlSessionFactory">
 		<property name="dataSource" ref="dataSource" />
@@ -33,6 +33,20 @@
 		id="sqlSession" destroy-method="clearCache">
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
 
+	</bean>
+	-->
+	
+	<!-- MyBatis 설정 : Mapper 인터페이스 이용 -->
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean"
+		id="sqlSessionFactory">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="goodMapper"
+	class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+		<property name="mapperInterface"
+		value="good.dao.GoodMapper" />
 	</bean>
 	
 	
